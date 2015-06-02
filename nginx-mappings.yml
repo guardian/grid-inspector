@@ -1,0 +1,4 @@
+name: grid-infra
+mappings:
+  - prefix: media-wat
+    port: 9654

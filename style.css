@@ -1,0 +1,61 @@
+.image-row__image {
+    width: 100px;
+    height: 60px;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+table {
+    width: 100%;
+}
+th {
+    text-align: left;
+}
+td {
+    vertical-align: top;
+    padding: 2px 5px;
+}
+tr:nth-child(even) {
+    background-color: #eee;
+}
+
+input[type="text"] {
+    width: 400px;
+}
+
+.image-row__supplier,
+.image-row__uploaded {
+    white-space: nowrap;
+}
+
+.image-row__collection,
+.image-row__credit,
+.image-row__byline {
+    width: 150px;
+}
+
+.image-row__description {
+    max-width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.image-row__validity,
+.image-row__cost {
+    width: 50px;
+}
+
+.cost--pay {
+    background-color: #ff6666;
+}
+.validity--invalid {
+    background-color: #ff6666;
+}
+
+
+.filter-group {
+    margin: 0 10px;
+}

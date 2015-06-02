@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Rights inspector</title>
+  <script src="jspm_packages/system.js"></script>
+  <script src="config.js"></script>
+  <script>
+    System.import("app").catch(function(error) {
+      setTimeout(function(){ throw error; });
+    });
+  </script>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <main id="out"></main>
+
+</body>
+</html>
