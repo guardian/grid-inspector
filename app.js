@@ -77,11 +77,13 @@ function results() {
             const usageRights = imageResource.data.usageRights || {};
             const identifiers = imageResource.data.identifiers || {};
             const picdarUrn = identifiers.picdarUrn;
+            // FIXME: use getLink (annoying as it returns a Promise that needs flatMapping)
+            const uiHref = imageResource.links.find(link => link.rel === 'ui:image').href;
             return h('tr', [
                 h('td', {className: 'image-row__image'},
-                  linkElement(imageResource.uri,
+                  linkElement(uiHref,
                               imageElement(thumbnail.secureUrl))
-                 ),
+                ),
                 h('td', {className: `image-row__validity validity validity--${valid}`}, valid),
                 h('td', {className: `image-row__cost cost cost--${cost}`}, cost),
                 h('td', imageResource.data.uploadedBy.replace(/@guardian.co.uk/, '')),
@@ -93,7 +95,9 @@ function results() {
                 h('td', metadata.source),
                 h('td', metadata.copyright),
                 h('td', {className: `image-row__uploaded`},
-                  moment(uploadTime).format('YYYY-MM-DD HH:mm')),
+                  linkElement(imageResource.uri,
+                              moment(uploadTime).format('YYYY-MM-DD HH:mm'))
+                ),
                 h('td', [
                     linkElement(getPicdarViewUri(picdarUrn), [picdarUrn])
                 ]),

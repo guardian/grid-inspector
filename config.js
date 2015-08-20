@@ -13,7 +13,7 @@ System.config({
     "json": "github:systemjs/plugin-json@0.1.0",
     "moment": "github:moment/moment@2.9.0",
     "rx": "npm:rx@2.5.2",
-    "theseus": "npm:theseus@0.4.0",
+    "theseus": "npm:theseus@0.5.0",
     "traceur": "github:jmcriffey/bower-traceur@0.0.87",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.87",
     "virtual-dom": "npm:virtual-dom@1.3.0",
@@ -67,6 +67,9 @@ System.config({
       "js-string-escape": "npm:js-string-escape@1.0.0"
     },
     "npm:theseus@0.4.0": {
+      "uri-templates": "npm:uri-templates@0.1.7"
+    },
+    "npm:theseus@0.5.0": {
       "uri-templates": "npm:uri-templates@0.1.7"
     },
     "npm:uri-templates@0.1.7": {
