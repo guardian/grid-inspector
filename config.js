@@ -1,5 +1,6 @@
 System.config({
   "baseURL": "/rights-inspector",
+  "transpiler": "traceur",
   "paths": {
     "*": "*.js",
     "github:*": "jspm_packages/github/*.js",
@@ -9,7 +10,7 @@ System.config({
 
 System.config({
   "map": {
-    "any-http-reqwest": "npm:any-http-reqwest@0.1.1",
+    "any-http-reqwest": "npm:any-http-reqwest@0.1.2",
     "json": "github:systemjs/plugin-json@0.1.0",
     "moment": "github:moment/moment@2.9.0",
     "rx": "npm:rx@2.5.2",
@@ -29,8 +30,8 @@ System.config({
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
-    "npm:any-http-reqwest@0.1.1": {
-      "reqwest": "github:ded/reqwest@1.1.5"
+    "npm:any-http-reqwest@0.1.2": {
+      "reqwest": "github:ded/reqwest@1.1.6"
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
@@ -65,9 +66,6 @@ System.config({
     },
     "npm:string-template@0.2.0": {
       "js-string-escape": "npm:js-string-escape@1.0.0"
-    },
-    "npm:theseus@0.4.0": {
-      "uri-templates": "npm:uri-templates@0.1.7"
     },
     "npm:theseus@0.5.0": {
       "uri-templates": "npm:uri-templates@0.1.7"

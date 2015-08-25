@@ -21,7 +21,7 @@
       "lib": "."
     },
     "dependencies": {
-      "any-http-reqwest": "npm:any-http-reqwest@^0.1.1",
+      "any-http-reqwest": "npm:any-http-reqwest@^0.1.2",
       "json": "github:systemjs/plugin-json@^0.1.0",
       "moment": "github:moment/moment@^2.9.0",
       "rx": "npm:rx@^2.5.2",
