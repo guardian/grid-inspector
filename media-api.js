@@ -6,7 +6,9 @@ import apiUriByEnv from './media-api.config.json!';
 
 const client = new Client({
     promise: Promise,
-    http: new Http
+    http: new Http({
+        withCredentials: true
+    })
 });
 
 function isDefined(val) {
