@@ -1,7 +1,7 @@
 import {Client} from 'theseus';
 import {Http} from 'any-http-reqwest';
 
-import apiUriByEnv from './media-api.config.json!';
+import apiUriByEnv from './config/media-api.json!';
 
 
 const client = new Client({

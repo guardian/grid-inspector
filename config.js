@@ -1,5 +1,5 @@
 System.config({
-//  baseURL: "/rights-inspector",
+  //baseURL: '/rights-inspector',
   defaultJSExtensions: true,
   transpiler: "traceur",
   paths: {
@@ -10,11 +10,11 @@ System.config({
   map: {
     "any-http-reqwest": "npm:any-http-reqwest@0.1.2",
     "json": "github:systemjs/plugin-json@0.1.0",
-    "moment": "github:moment/moment@2.9.0",
-    "rx": "npm:rx@2.5.2",
+    "moment": "github:moment/moment@2.10.6",
+    "rx": "npm:rx@2.5.3",
     "theseus": "npm:theseus@0.5.0",
-    "traceur": "github:jmcriffey/bower-traceur@0.0.87",
-    "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.87",
+    "traceur": "github:jmcriffey/bower-traceur@0.0.91",
+    "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.91",
     "virtual-dom": "npm:virtual-dom@1.3.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -37,7 +37,7 @@ System.config({
     "npm:error@4.4.0": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "camelize": "npm:camelize@1.0.0",
-      "string-template": "npm:string-template@0.2.0",
+      "string-template": "npm:string-template@0.2.1",
       "xtend": "npm:xtend@4.0.0"
     },
     "npm:ev-store@7.0.0": {
@@ -55,11 +55,8 @@ System.config({
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:rx@2.5.2": {
+    "npm:rx@2.5.3": {
       "process": "github:jspm/nodelibs-process@0.1.1"
-    },
-    "npm:string-template@0.2.0": {
-      "js-string-escape": "npm:js-string-escape@1.0.0"
     },
     "npm:theseus@0.5.0": {
       "uri-templates": "npm:uri-templates@0.1.7"
