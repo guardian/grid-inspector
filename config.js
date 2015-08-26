@@ -1,15 +1,13 @@
 System.config({
-  "baseURL": "/rights-inspector",
-  "transpiler": "traceur",
-  "paths": {
-    "*": "*.js",
-    "github:*": "jspm_packages/github/*.js",
-    "npm:*": "jspm_packages/npm/*.js"
-  }
-});
+//  baseURL: "/rights-inspector",
+  defaultJSExtensions: true,
+  transpiler: "traceur",
+  paths: {
+    "github:*": "jspm_packages/github/*",
+    "npm:*": "jspm_packages/npm/*"
+  },
 
-System.config({
-  "map": {
+  map: {
     "any-http-reqwest": "npm:any-http-reqwest@0.1.2",
     "json": "github:systemjs/plugin-json@0.1.0",
     "moment": "github:moment/moment@2.9.0",
@@ -46,14 +44,10 @@ System.config({
       "individual": "npm:individual@3.0.0"
     },
     "npm:global@4.3.0": {
-      "min-document": "npm:min-document@2.14.0",
       "process": "npm:process@0.5.2"
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
-    },
-    "npm:min-document@2.14.0": {
-      "dom-walk": "npm:dom-walk@0.1.1"
     },
     "npm:next-tick@0.2.2": {
       "process": "github:jspm/nodelibs-process@0.1.1"
@@ -91,4 +85,3 @@ System.config({
     }
   }
 });
-

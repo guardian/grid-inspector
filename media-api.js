@@ -13,11 +13,32 @@ function isDefined(val) {
     return typeof val !== 'undefined';
 }
 
+function cleanUndefinedProps(dirty) {
+    return Object.keys(dirty).reduce((clean, key) => {
+        if (isDefined(dirty[key])) {
+            clean[key] = dirty[key];
+        }
+        return clean;
+    }, {});
+}
+
+function getPicdarParams(hasIdentifier) {
+    if (isDefined(hasIdentifier)) {
+        if (hasIdentifier) {
+            return {hasIdentifier: 'picdarUrn'};
+        } else {
+            return {missingIdentifier: 'picdarUrn'};
+        }
+    }
+
+    return {};
+}
+
 export function listEnvironments() {
     return Object.keys(apiUriByEnv);
 };
 
-export function search(env, {query, valid, free, picdar, offset = 0, length = 10}) {
+export function search(env, {query, valid, free, picdar, costModelDiff, offset = 0, length = 10}) {
     const apiUrl = apiUriByEnv[env];
     const api = client.resource(apiUrl);
 
@@ -26,24 +47,15 @@ export function search(env, {query, valid, free, picdar, offset = 0, length = 10
         // missingIdentifier: 'picdarUrn',
         // hasIdentifier: 'picdarUrn',
         q: query,
-        offset: offset,
-        length: length
+        offset,
+        length,
+        valid,
+        free,
+        costModelDiff
     };
 
-    // FIXME: nicer way to do this without mutations?
-    if (isDefined(valid)) {
-        queryParams.valid = valid;
-    }
-    if (isDefined(free)) {
-        queryParams.free = free;
-    }
-    if (isDefined(picdar)) {
-        if (picdar) {
-            queryParams.hasIdentifier = 'picdarUrn';
-        } else {
-            queryParams.missingIdentifier = 'picdarUrn';
-        }
-    }
+    const cleanQueryParams = cleanUndefinedProps(queryParams);
+    const picdaredQueryParams = Object.assign({}, cleanQueryParams, getPicdarParams(picdar));
 
-    return api.follow('search').get(queryParams, {withCredentials: true});
+    return api.follow('search').get(picdaredQueryParams, {withCredentials: true});
 };

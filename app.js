@@ -10,7 +10,9 @@ import {$initThen, $sink} from './util';
 import {input} from './components/input';
 import {select} from './components/select';
 import {button} from './components/button';
+import {labelledCheckbox} from './components/checkbox/labelled';
 import {ternaryCheckbox} from './components/checkbox/ternary';
+import {flagCheckbox} from './components/checkbox/flag';
 
 import {search, listEnvironments} from './media-api';
 import {getPicdarViewUri} from './picdar';
@@ -184,13 +186,16 @@ const view = function() {
     const picdarChoice     = ternaryCheckbox('picdar', 'non-picdar');
     const resultSizeChoice = select([10, 50, 100], 100);
     const envChoice        = select(listEnvironments(), 'PROD');
+    const costModelDiff    = flagCheckbox("Diff cost model", false);
+
     const q = {
         env$:    envChoice.model.value$,
         length$: resultSizeChoice.model.value$,
         query$:  queryInput.model.value$,
         valid$:  validityChoice.model.value$,
         free$:   costChoice.model.value$,
-        picdar$: picdarChoice.model.value$
+        picdar$: picdarChoice.model.value$,
+        costModelDiff$: costModelDiff.model.value$
     };
 
     // Stream of results from the query filters
@@ -201,7 +206,8 @@ const view = function() {
         q.valid$,
         q.free$,
         q.picdar$,
-        (env, length, query, valid, free, picdar) => [{length, query, valid, free, picdar}, env]
+        q.costModelDiff$,
+        (env, length, query, valid, free, picdar, costModelDiff) => [{length, query, valid, free, picdar, costModelDiff}, env]
     ).map(([params, env]) => {
         // Important: memoize result to avoid being re-evaluated when
         // this is merged and flatMapped over
@@ -240,7 +246,8 @@ const view = function() {
             costChoice.tree$,
             picdarChoice.tree$,
             envChoice.tree$,
-            resultSizeChoice.tree$
+            resultSizeChoice.tree$,
+            costModelDiff.tree$
         ].map(choice$ => choice$.map(renderFilterGroup));
 
         const queryView$ = $container('form', [
