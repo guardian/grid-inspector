@@ -13,6 +13,6 @@ export function flagCheckbox(label, initialState = false) {
         model: {
             value$: cb.model.checked$.map(checked => checked ? true : undefined)
         },
-        tree$: $combine(cb.tree$, (...views) => h('span', views))
+        tree$: cb.tree$.map(view => h('span', view))
     };
 };
