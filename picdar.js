@@ -1,4 +1,4 @@
-import config from './picdar.config.json!';
+import config from './config/picdar.json!';
 
 const {composerUri} = config;
 
