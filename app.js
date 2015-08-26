@@ -12,7 +12,6 @@ import {select} from './components/select';
 import {button} from './components/button';
 import {labelledCheckbox} from './components/checkbox/labelled';
 import {ternaryCheckbox} from './components/checkbox/ternary';
-import {flagCheckbox} from './components/checkbox/flag';
 
 import {search, listEnvironments} from './media-api';
 import {getPicdarViewUri} from './picdar';
@@ -186,7 +185,7 @@ const view = function() {
     const picdarChoice     = ternaryCheckbox('picdar', 'non-picdar');
     const resultSizeChoice = select([10, 50, 100], 100);
     const envChoice        = select(listEnvironments(), 'PROD');
-    const costModelDiff    = flagCheckbox("Diff cost model", false);
+    const costModelDiff    = labelledCheckbox('Diff cost model', false);
 
     const q = {
         env$:    envChoice.model.value$,
@@ -195,7 +194,7 @@ const view = function() {
         valid$:  validityChoice.model.value$,
         free$:   costChoice.model.value$,
         picdar$: picdarChoice.model.value$,
-        costModelDiff$: costModelDiff.model.value$
+        costModelDiff$: costModelDiff.model.checked$
     };
 
     // Stream of results from the query filters
