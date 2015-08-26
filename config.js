@@ -1,5 +1,4 @@
 System.config({
-  //baseURL: '/rights-inspector',
   defaultJSExtensions: true,
   transpiler: "traceur",
   paths: {
