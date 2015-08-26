@@ -11,6 +11,5 @@ Get your local `/config/picdar.json` and `/config/media-api.json` from
 a friendly developer near you.
 
     $ npm install
-    $ npm run setup
     $ python -m SimpleHTTPServer 9654
  
