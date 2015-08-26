@@ -6,6 +6,11 @@
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
+    // FIXME: Hack so that this will work no /rights-inspector too.
+    // You can't use `System.config` as it borks here:
+    // https://github.com/systemjs/systemjs/blob/d2b3d9271e2ea132cea2930a4d049122df77797d/lib/core.js#L133
+    System.baseURL = window.location.pathname;
+
     System.import("app").catch(function(error) {
       setTimeout(function(){ throw error; });
     });
