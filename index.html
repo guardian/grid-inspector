@@ -1,25 +1,38 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>Rights inspector</title>
-  <script src="jspm_packages/system.js"></script>
-  <script src="config.js"></script>
-  <script>
-    // FIXME: Hack so that this will work no /rights-inspector too.
-    // You can't use `System.config` as it borks here:
-    // https://github.com/systemjs/systemjs/blob/d2b3d9271e2ea132cea2930a4d049122df77797d/lib/core.js#L133
-    System.baseURL = window.location.pathname;
+  <head>
+    <meta charset="utf-8" />
+    <title>Rights inspector</title>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+      // FIXME: Hack so that this will work no /rights-inspector too.
+      // You can't use `System.config` as it borks here:
+      // https://github.com/systemjs/systemjs/blob/d2b3d9271e2ea132cea2930a4d049122df77797d/lib/core.js#L133
+      // System.baseURL = window.location.pathname;
 
-    System.import("app").catch(function(error) {
-      setTimeout(function(){ throw error; });
-    });
-  </script>
-  <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-
-  <main id="out"></main>
-
-</body>
+      System.import("app").catch(function(error) {
+        setTimeout(function(){ throw error; });
+      });
+    </script>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <header class="top-toolbar">
+       <a class="top-toolbar__title" href="/">
+          <div class="top-toolbar__letter" ></div>
+          <div class="top-toolbar__page-title"></div>
+       </a>
+       <div class="header__children" >
+          <ul class="links" >
+             </li>
+          </ul>
+       </div>
+       <div class="top-toolbar__right-align">
+        
+          <div class="top-toolbar__user top-toolbar__item"><span class="user__name"></span></div>
+       </div>
+    </header>
+    <div id="main-container"></div>
+  </body>
 </html>

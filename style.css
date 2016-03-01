@@ -1,3 +1,156 @@
+.top-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  min-height: 50px;
+  max-height: 50px;
+  background-color: #dee2e3;
+  z-index: 2;
+  line-height: 50px;
+}
+
+.header__children {
+  flex-grow: 2;
+}
+
+.top-toolbar__item,
+.top-toolbar__item--disabled,
+.top-toolbar__item--highlight,
+.top-toolbar__item--btn {
+  position: relative;
+  padding: 0 15px;
+  line-height: 50px;
+  text-decoration: none;
+  color: #333333;
+}
+
+.top-toolbar__item--active:after,
+.top-toolbar__item--disabled--active:after,
+.top-toolbar__item--highlight--active:after,
+.top-toolbar__item--btn--active:after {
+  content: " ";
+  display: block;
+  height: 3px;
+  width: 100%;
+  bottom: 47px;
+  left: 0;
+  background-color: #00adee;
+  position: absolute;
+}
+
+.top-toolbar__item--btn {
+  cursor: pointer;
+}
+
+.top-toolbar__item--btn:hover {
+  background-color: #bdbdbd;
+}
+
+.top-toolbar__item--disabled {
+  color: #bdbdbd;
+}
+
+.top-toolbar__item--highlight {
+  background-color: #00adee;
+  color: white;
+}
+
+.top-toolbar__item--highlight a {
+  color: white !important;
+}
+
+.top-toolbar__item--highlight:hover {
+  background-color: #008fc5;
+}
+
+.top-toolbar__title {
+  flex: 0 0 120px;
+  position: relative;
+  font-size: 18px;
+  line-height: 50px;
+  margin: 0;
+  display: flex;
+  text-decoration: none;
+  color: black;
+}
+
+.top-toolbar__title .top-toolbar__letter {
+  flex: 0 0 60px;
+  background: no-repeat center url(/assets/images/icons/quiz-logo-q.svg) #7D0068;
+}
+
+.top-toolbar__title .top-toolbar__page-title {
+  flex: 0 0 60px;
+  background: no-repeat center url(/assets/images/icons/quiz-logo.svg) #BB3A7F;
+}
+
+.top-toolbar__title .top-toolbar__title__hover-state {
+  display: none;
+}
+
+.top-toolbar__title:hover .top-toolbar__title__hover-state {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333333;
+  line-height: 21px;
+  padding-left: 10px;
+  padding-top: 2px;
+}
+
+.top-toolbar__title:hover .top-toolbar__title__hover-state span {
+  color: white;
+}
+
+.top-toolbar__letter, .top-toolbar__page-title {
+  display: inline-block;
+  text-align: center;
+  line-height: 55px;
+}
+
+.links {
+  display: block;
+  text-align: right;
+}
+
+.links .links__item {
+  vertical-align: middle;
+  display: inline-block;
+  vertical-align: top;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+  border-left: 1px solid #bdbdbd;
+}
+
+.links .links__item a {
+  display: inline-block;
+  text-decoration: none;
+  color: #333333;
+}
+
+.top-toolbar__right-align {
+  margin-left: auto;
+  display: flex;
+}
+
+.top-toolbar__right-align .top-toolbar__user {
+  border-left: 1px solid #bdbdbd;
+}
+
+.header__component {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+}
+
+
+
 .image-row__image {
     width: 100px;
     height: 60px;
@@ -58,4 +211,8 @@ input[type="text"] {
 
 .filter-group {
     margin: 0 10px;
+}
+
+#main-container {
+  padding-top: 40px;
 }

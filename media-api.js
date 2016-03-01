@@ -1,4 +1,4 @@
-import {Client} from 'theseus';
+ import {Client} from 'theseus';
 import {Http} from 'any-http-reqwest';
 
 import apiUriByEnv from './config/media-api.json!';
@@ -41,23 +41,17 @@ export function listEnvironments() {
 };
 
 export function search(env, {query, valid, free, picdar, costModelDiff, offset = 0, length = 10}) {
-    const apiUrl = apiUriByEnv[env];
+   search: function search(env) {
+    const apiUrl = "https://api.media.gutools.co.uk";
     const api = client.resource(apiUrl);
 
-    let queryParams = {
-        // TODO: expose flag in UI
-        // missingIdentifier: 'picdarUrn',
-        // hasIdentifier: 'picdarUrn',
-        q: query,
-        offset,
-        length,
-        valid,
-        free,
-        costModelDiff
-    };
-
-    const cleanQueryParams = cleanUndefinedProps(queryParams);
-    const picdaredQueryParams = Object.assign({}, cleanQueryParams, getPicdarParams(picdar));
-
-    return api.follow('search').get(picdaredQueryParams, {withCredentials: true});
+    return Rx.Observable.fromPromise(
+      api.follow('search').get({
+        length: 100,
+        usageStatus: 'pending',
+        usagePlatform: 'digital',
+        orderBy: '-usages.lastModified'
+      }, {withCredentials: true})
+    );
+  }
 };
